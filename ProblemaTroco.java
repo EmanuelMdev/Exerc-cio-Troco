@@ -2,9 +2,11 @@ import java.util.Scanner;
 public class Code {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
+	int resposta = 1;
+	do {
   System.out.println("Digite um numero e eu lhe darei o troco");
   long num = in.nextLong();
-  
+  if (num >= 10) {
   long notas10 = (num / 10);
 
   String numString = String.valueOf(num);
@@ -68,6 +70,24 @@ public static void main(String[] args) {
 	  notas5 = 1;
 	  notas2 = 2;
   }
-  System.out.println("--------------- \nSeu troco são: \nNotas de 10: " + notas10 + "\nNotas de 5: " + notas5 + "\nNotas de 2: " + notas2);
-}
+  
+  System.out.println("--------------- \nSeu troco é: \nNotas de 10: " + notas10 + "\nNotas de 5: " + notas5 + "\nNotas de 2: " + notas2);
+} else if (num == 1 || num == 3) {
+	  System.out.println("--------------- \nSeu troco é: \nNotas de 10: NULL" + "\nNotas de 5: NULL" + "\nNotas de 2: NULL");
+} else {
+	long notas2 = 0;
+	if (num % 2 == 0) {
+		  notas2 = (num / 2);
+	}
+		  long notas5 = (num / 5);
+		  System.out.println("--------------- \nSeu troco é: \nNotas de 10: 0" + "\nNotas de 5: " + notas5 + "\nNotas de 2: " + notas2);
+	  }
+  System.out.println("--------------- \nQuer tentar novamente? (1) Sim (2) Não");
+  resposta = in.nextInt();
+  
+  if (resposta == 2){
+	  System.out.println("------------------- \nTenha um ótimo dia! \n-------------------");
+  }
+	} while (resposta == 1);
+  }
 }
